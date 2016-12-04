@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+</head>
+<body>
+	<!-- canvas的大小不建议使用css定义，这是因为不仅定义canvas画布的大小，同样会定义画布里面的分辨率。 -->
+	<!-- 也是因为这个原因，canvas的宽高不建议带上单位。 -->
+	<canvas id="canvas" width="1024" height="768" style="border: 1px solid #aaa; display: block; margin: 50px auto;">当前浏览器不支持，请更换浏览器！</canvas>
+	<!-- 当用户浏览器不支持canvas时，canvas标签中间的文字会显示 -->
+</body>
+</html>
+<script>
+	window.onload = function () {
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+
+		//画弧线
+		context.lineWidth = 5;
+		context.strokeStyle = "#005588";
+		context.arc(300, 300, 200, 0, 1.5*Math.PI);
+		context.stroke();
+		//context.arc(centerx, centery, radius, startingAngle, endingAngle[, anticlockwise])
+		//centerx, centery 为圆心坐标，radius为半径
+		//startingAngle 起始角度，endingAngle结束角度，在圆3点钟上为起始点，顺时针方向走，6点为0,5PI，9点为PI
+		//回到起点为2PI
+		//anticlockwise位可选参数，不加默认为顺时钟方向绘制。
+
+		//画直线
+		// context.beginPath();
+		// context.moveTo(100, 100);
+		// context.lineTo(700, 700);
+		// context.lineTo(100, 700);
+		// context.lineTo(100, 100);
+		// context.closePath();
+
+		//填充
+		//context.fillStyle = "green";
+		//context.fill();
+
+		//画线（边框）
+		// context.lineWidth = 5;
+		// context.strokeStyle = "#005588";
+		// context.stroke();
+
+		// context.beginPath();
+		// context.moveTo(200, 100);
+		// context.lineTo(700, 600);
+		// context.closePath();
+		
+		// context.strokeStyle = "black";
+		// context.stroke();
+	}
+</script>
